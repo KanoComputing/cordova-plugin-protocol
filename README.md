@@ -16,7 +16,7 @@ The host location can be anything as it is ignored while serving files locally, 
 To allow the scheme to be used, you will also need to add this configuration for the `cordova-plugin-whitelist`:
 
 ```xml
-<allow-navigation href="scheme-plugin://*/*" />
+<allow-navigation href="protocol-plugin://*/*" />
 ```
 
 This will by default serve the files located in your `www` directory. You can change this by setting `Root` in the preferences:
