@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" id="cordova-plugin-protocol" version="1.0.0">
+  <engines>
+    <engine name="cordova-plugman" version=">=5.0.0" />
+    <engine name="cordova-android" version=">=5.0.0" />
+  </engines>
+  <name>Cordova Plugin Protocol</name>
+  <description>Cordova plugin allowing the creation of a custom protocol to serve files locally without using the file scheme</description>
+  <author>Kano Computing</author>
+  <keywords>cordova</keywords>
+  <license>MIT</license>
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="ProtocolPlugin">
+        <param name="android-package" value="com.kano.webview.ProtocolPlugin" />
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+    <source-file src="src/android/com/kano/cordova/ProtocolPlugin.java" target-dir="src/com/kano/cordova" />
+  </platform>
+</plugin>
