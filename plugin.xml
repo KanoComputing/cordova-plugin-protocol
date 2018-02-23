@@ -18,4 +18,15 @@
     </config-file>
     <source-file src="src/android/com/kano/cordova/ProtocolPlugin.java" target-dir="src/com/kano/cordova" />
   </platform>
+  <platform name="ios">
+      <config-file target="config.xml" parent="/*">
+          <feature name="ProtocolPlugin">
+              <param name="ios-package" value="ProtocolPlugin" />
+              <param name="onload" value="true" />
+          </feature>
+      </config-file>
+      <header-file src="src/ios/Bridging-Header.h" />
+      <source-file src="src/ios/ProtocolPlugin.swift" />
+      <source-file src="src/ios/MimeType.swift" />
+  </platform>
 </plugin>

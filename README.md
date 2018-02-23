@@ -7,7 +7,7 @@ Allows the creation of a custom protocol to serve files locally without using th
 Once the plugin installed, change the content location in your `config.xml`:
 
 ```xml
-<content src="scheme-plugin://<anything>/index.html" />
+<content src="protocol-plugin:///index.html" />
 ```
 
 The host location can be anything as it is ignored while serving files locally, you just need to respect a url format.
