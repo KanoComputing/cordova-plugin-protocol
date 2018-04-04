@@ -9,6 +9,7 @@
   <author>Kano Computing</author>
   <keywords>cordova</keywords>
   <license>MIT</license>
+  <dependency id="cordova-plugin-add-swift-support" version="1.7.1"/>
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="ProtocolPlugin">
