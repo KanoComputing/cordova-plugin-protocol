@@ -23,9 +23,13 @@ class ContentURLProtocol: URLProtocol {
         if let url = self.request.url {
             let urlString = url.absoluteString
 
-            // remove the leading SCHEME:// from the URL
-            let startIndex = urlString.index(urlString.startIndex, offsetBy: "\(ContentURLProtocol.scheme)://".count)
-            let endIndex = urlString.endIndex
+            // extract path from url
+            let pattern = "^\(ContentURLProtocol.scheme)://[^/]*(/.*)$"
+            let regex = try! NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+            let matches = regex.matches(in: urlString, range: NSMakeRange(0, urlString.count))
+            let pathMatch = matches[0].rangeAt(1)
+            let startIndex = urlString.index(urlString.startIndex, offsetBy: pathMatch.location)
+            let endIndex = urlString.index(startIndex, offsetBy: pathMatch.length)
             var filePath = urlString[startIndex..<endIndex]
 
             let wwwPath = "\(Bundle.main.bundlePath)/\(ContentURLProtocol.root)"
